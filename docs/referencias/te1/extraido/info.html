@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecionando...</title>
+    <!-- Usando Tailwind CSS para um visual mais agradável -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white flex items-center justify-center min-h-screen">
+
+    <div id="fallback" class="text-center p-8 bg-gray-800 rounded-lg shadow-xl max-w-lg mx-auto">
+        <h1 class="text-2xl font-bold mb-4 text-cyan-400">Redirecionando...</h1>
+        <p class="mb-6 text-gray-300">
+            Estamos tentando redirecioná-lo com base no idioma do seu navegador.
+            Se nada acontecer em alguns segundos, por favor, use um dos links abaixo.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <!-- Link para o Site A (Português) -->
+            <a id="site-a-link" href="https://te1.com.br/doar.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105">
+                Te1.com.br (Português)
+            </a>
+            <!-- Link para o Site B (Outros Idiomas) -->
+            <a id="site-b-link" href="https://xtronic.org/donate.html" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105">
+                Xtronic.org (Other Languages)
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // --- CONFIGURAÇÃO ---
+        // Altere os URLs abaixo para os seus sites de destino
+        const siteA_Url = "https://te1.com.br/doar.html"; // Site para quem fala português
+        const siteB_Url = "https://xtronic.org/donate.html";   // Site para outros idiomas
+
+        // Atualiza os links da página de fallback para o caso do redirecionamento falhar
+        document.getElementById('site-a-link').href = siteA_Url;
+        document.getElementById('site-b-link').href = siteB_Url;
+
+        try {
+            // Pega o idioma do navegador. navigator.language é o padrão moderno.
+            // Ex: 'pt-BR', 'en-US', 'fr'
+            const userLang = navigator.language || navigator.userLanguage;
+
+            // Verifica se o idioma começa com 'pt' (cobre 'pt-BR', 'pt-PT', etc.)
+            if (userLang.toLowerCase().startsWith('pt')) {
+                // Redireciona para o site em português
+                window.location.replace(siteA_Url);
+            } else {
+                // Redireciona para o site em outros idiomas
+                window.location.replace(siteB_Url);
+            }
+        } catch (e) {
+            // Se houver qualquer erro no script, o fallback em HTML já estará visível.
+            // Logamos o erro no console para fins de depuração.
+            console.error("Falha ao tentar redirecionar:", e);
+        }
+    </script>
+	<!-- Google Translate -->
+
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- End Google Translate -->
+</body>
+</html>

@@ -1,0 +1,42 @@
+{
+  "name": "vu_meter_lm3915",
+  "supply_volts": [9, 9],
+  "parts": {
+    "CI1": {"value": "LM3915N-1", "pins": ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18"]},
+    "D1": {"value": "LED verde", "pins": ["A", "K"]},
+    "D2": {"value": "LED verde", "pins": ["A", "K"]},
+    "D3": {"value": "LED verde", "pins": ["A", "K"]},
+    "D4": {"value": "LED verde", "pins": ["A", "K"]},
+    "D5": {"value": "LED amarelo", "pins": ["A", "K"]},
+    "D6": {"value": "LED amarelo", "pins": ["A", "K"]},
+    "D7": {"value": "LED amarelo", "pins": ["A", "K"]},
+    "D8": {"value": "LED vermelho", "pins": ["A", "K"]},
+    "D9": {"value": "LED vermelho", "pins": ["A", "K"]},
+    "D10": {"value": "LED vermelho", "pins": ["A", "K"]},
+    "R1": {"value": "2k2", "pins": ["1", "2"]},
+    "R2": {"value": "1k", "pins": ["1", "2"]},
+    "RP1": {"value": "10k linear", "pins": ["1", "W", "3"]},
+    "C2": {"value": "100nF", "pins": ["1", "2"]},
+    "C5": {"value": "100uF/16V", "pins": ["+", "-"]},
+    "J1": {"value": "P2 femea", "pins": ["T", "S"]},
+    "BT1": {"value": "9V", "pins": ["+", "-"]}
+  },
+  "nets": {
+    "VCC": ["BT1.+", "CI1.3", "CI1.9", "D1.A", "D2.A", "D3.A", "D4.A", "D5.A", "D6.A", "D7.A", "D8.A", "D9.A", "D10.A", "C2.1", "C5.+"],
+    "GND": ["BT1.-", "CI1.2", "CI1.4", "CI1.8", "R1.2", "RP1.3", "C2.2", "C5.-", "J1.S"],
+    "REF": ["CI1.7", "CI1.6", "R1.1"],
+    "IN": ["J1.T", "R2.1"],
+    "POT_TOP": ["R2.2", "RP1.1"],
+    "SIG": ["RP1.W", "CI1.5"],
+    "LED1": ["CI1.1", "D1.K"],
+    "LED2": ["CI1.18", "D2.K"],
+    "LED3": ["CI1.17", "D3.K"],
+    "LED4": ["CI1.16", "D4.K"],
+    "LED5": ["CI1.15", "D5.K"],
+    "LED6": ["CI1.14", "D6.K"],
+    "LED7": ["CI1.13", "D7.K"],
+    "LED8": ["CI1.12", "D8.K"],
+    "LED9": ["CI1.11", "D9.K"],
+    "LED10": ["CI1.10", "D10.K"]
+  }
+}
